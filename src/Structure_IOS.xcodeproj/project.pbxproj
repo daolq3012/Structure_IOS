@@ -69,14 +69,94 @@
 		BFACA53D1F9B2499003EB555 /* Structure_IOS */ = {
 			isa = PBXGroup;
 			children = (
-				BFACA53E1F9B2499003EB555 /* AppDelegate.swift */,
-				BFACA5401F9B2499003EB555 /* ViewController.swift */,
-				BFACA5421F9B2499003EB555 /* Main.storyboard */,
-				BFACA5451F9B2499003EB555 /* Assets.xcassets */,
-				BFACA5471F9B2499003EB555 /* LaunchScreen.storyboard */,
 				BFACA54A1F9B2499003EB555 /* Info.plist */,
+				BFACA53E1F9B2499003EB555 /* AppDelegate.swift */,
+				BFACA5451F9B2499003EB555 /* Assets.xcassets */,
+				BFACA5511F9B2F02003EB555 /* api */,
+				BFACA5581F9B2F8B003EB555 /* base */,
+				BFACA55B1F9B2FAF003EB555 /* enum */,
+				BFACA5521F9B2F09003EB555 /* extensions */,
+				BFACA5531F9B2F1C003EB555 /* interface */,
+				BFACA55A1F9B2F9F003EB555 /* model */,
+				BFACA5571F9B2F72003EB555 /* resources */,
+				BFACA5551F9B2F41003EB555 /* services */,
+				BFACA5541F9B2F2D003EB555 /* utils */,
+				BFACA5591F9B2F92003EB555 /* viewcontrollers */,
 			);
 			path = Structure_IOS;
+			sourceTree = "<group>";
+		};
+		BFACA5511F9B2F02003EB555 /* api */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = api;
+			sourceTree = "<group>";
+		};
+		BFACA5521F9B2F09003EB555 /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = extensions;
+			sourceTree = "<group>";
+		};
+		BFACA5531F9B2F1C003EB555 /* interface */ = {
+			isa = PBXGroup;
+			children = (
+				BFACA5471F9B2499003EB555 /* LaunchScreen.storyboard */,
+				BFACA5421F9B2499003EB555 /* Main.storyboard */,
+			);
+			name = interface;
+			sourceTree = "<group>";
+		};
+		BFACA5541F9B2F2D003EB555 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = utils;
+			sourceTree = "<group>";
+		};
+		BFACA5551F9B2F41003EB555 /* services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = services;
+			sourceTree = "<group>";
+		};
+		BFACA5571F9B2F72003EB555 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = resources;
+			sourceTree = "<group>";
+		};
+		BFACA5581F9B2F8B003EB555 /* base */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = base;
+			sourceTree = "<group>";
+		};
+		BFACA5591F9B2F92003EB555 /* viewcontrollers */ = {
+			isa = PBXGroup;
+			children = (
+				BFACA5401F9B2499003EB555 /* ViewController.swift */,
+			);
+			name = viewcontrollers;
+			sourceTree = "<group>";
+		};
+		BFACA55A1F9B2F9F003EB555 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
+		BFACA55B1F9B2FAF003EB555 /* enum */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = enum;
 			sourceTree = "<group>";
 		};
 		FF99B43D2D5A369497EE4BED /* Pods */ = {
@@ -382,6 +462,7 @@
 				BFACA54F1F9B2499003EB555 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
