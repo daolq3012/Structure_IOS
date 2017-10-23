@@ -8,18 +8,26 @@
 
 import UIKit
 
-class SearchViewController: UIViewController {
 
+class SearchViewController: BaseUIViewController {
+    
+    @IBOutlet weak var searchTextField: UITextField?
+    @IBOutlet weak var limitNumberTextField: UITextField?
+    @IBOutlet weak var searchButton: UIButton?
+    
+    private let userRepository: UserRepository = UserRepositoryImpl(api: APIService.share)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        userRepository.searchUsers(keyword: "abc", limit: 12) { (result) in
+            switch result {
+            case .success( _):
+//                print(searchResponse?.users)
+                break
+            case .failure( _):
+//                print(error)
+                break
+            }
+        }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
 }
-

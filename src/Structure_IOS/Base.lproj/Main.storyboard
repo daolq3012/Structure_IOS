@@ -13,7 +13,7 @@
         <!--Search ViewController-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="Search ViewController" id="BYZ-38-t0r" customClass="SearchViewController" sceneMemberID="viewController">
+                <viewController title="Search ViewController" id="BYZ-38-t0r" customClass="SearchViewController" customModule="Structure_IOS" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -75,6 +75,11 @@
                             <constraint firstAttribute="trailing" secondItem="FNf-c4-Gfi" secondAttribute="trailing" constant="2" id="uKg-wQ-ded"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="limitNumberTextField" destination="Jyb-3E-qfH" id="ZlW-Qv-42r"/>
+                        <outlet property="searchButton" destination="eNK-jz-vSZ" id="1mW-lH-QiV"/>
+                        <outlet property="searchTextField" destination="FNf-c4-Gfi" id="9XA-2z-Wo6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
