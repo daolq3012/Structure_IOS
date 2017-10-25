@@ -1,14 +1,19 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Dvw-Oe-kCm">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Search ViewController-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Search ViewController" id="BYZ-38-t0r" customClass="SearchViewController" customModule="Structure_IOS" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +21,91 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search User Github" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XHg-5V-z5Q">
+                                <rect key="frame" x="27" y="164" width="321" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="qgD-Ds-xP1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Keyword" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FNf-c4-Gfi">
+                                <rect key="frame" x="2" y="230" width="371" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="jpC-JJ-fcg"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Limit number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jyb-3E-qfH">
+                                <rect key="frame" x="2" y="281" width="371" height="40"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eNK-jz-vSZ">
+                                <rect key="frame" x="146" y="366" width="83" height="39"/>
+                                <color key="backgroundColor" red="1" green="0.2504925657" blue="0.57702020590000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="83" id="Mfr-aI-EQR"/>
+                                    <constraint firstAttribute="height" constant="39" id="Ttp-yB-PoI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Search">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="searchButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Y4L-8W-lw0"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Jyb-3E-qfH" firstAttribute="top" secondItem="FNf-c4-Gfi" secondAttribute="bottom" constant="11" id="4uy-Jo-RmV"/>
+                            <constraint firstItem="Jyb-3E-qfH" firstAttribute="height" secondItem="FNf-c4-Gfi" secondAttribute="height" id="Ee6-wV-Zv3"/>
+                            <constraint firstItem="XHg-5V-z5Q" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="11" id="GRz-gT-ip2"/>
+                            <constraint firstItem="Jyb-3E-qfH" firstAttribute="trailing" secondItem="FNf-c4-Gfi" secondAttribute="trailing" id="JFS-qP-x9W"/>
+                            <constraint firstItem="Jyb-3E-qfH" firstAttribute="leading" secondItem="FNf-c4-Gfi" secondAttribute="leading" id="PGc-zt-YmU"/>
+                            <constraint firstItem="FNf-c4-Gfi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="2" id="Xyy-P2-zck"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="XHg-5V-z5Q" secondAttribute="trailing" constant="11" id="bG3-Pc-Npb"/>
+                            <constraint firstItem="FNf-c4-Gfi" firstAttribute="top" secondItem="XHg-5V-z5Q" secondAttribute="bottom" constant="38" id="fDG-4t-zyt"/>
+                            <constraint firstItem="XHg-5V-z5Q" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="100" id="frd-tB-nCM"/>
+                            <constraint firstItem="eNK-jz-vSZ" firstAttribute="centerX" secondItem="Jyb-3E-qfH" secondAttribute="centerX" id="hNK-5T-byD"/>
+                            <constraint firstItem="eNK-jz-vSZ" firstAttribute="top" secondItem="Jyb-3E-qfH" secondAttribute="bottom" constant="45" id="jm4-U3-ROW"/>
+                            <constraint firstAttribute="trailing" secondItem="FNf-c4-Gfi" secondAttribute="trailing" constant="2" id="uKg-wQ-ded"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Search" id="Tz2-Jl-gbE">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="2j0-4u-Pii"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="limitNumberTextField" destination="Jyb-3E-qfH" id="ZlW-Qv-42r"/>
+                        <outlet property="searchButton" destination="eNK-jz-vSZ" id="1mW-lH-QiV"/>
+                        <outlet property="searchTextField" destination="FNf-c4-Gfi" id="9XA-2z-Wo6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="84" y="63.418290854572717"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="pGc-Nk-2Q1">
+            <objects>
+                <navigationController id="Dvw-Oe-kCm" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="RUY-1I-qh8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="FJe-8a-a3F"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qtF-qU-BFG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-762" y="43"/>
         </scene>
     </scenes>
 </document>
