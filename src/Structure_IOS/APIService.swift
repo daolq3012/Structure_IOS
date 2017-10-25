@@ -12,7 +12,7 @@ import ObjectMapper
 
 struct APIService {
     
-    public static let share = APIService()
+    static let share = APIService()
     
     private var alamofireManager = Alamofire.SessionManager.default
     
