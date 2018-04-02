@@ -9,4 +9,5 @@
 import Foundation
 
 class Constants {
+    public static let appName = "WSM"
 }

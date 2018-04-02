@@ -9,7 +9,7 @@
 import UIKit
 
 
-class SearchViewController: BaseUIViewController {
+class SearchViewController: BaseUIViewController, AlertViewController {
     
     @IBOutlet weak var searchTextField: UITextField?
     @IBOutlet weak var limitNumberTextField: UITextField?
@@ -19,15 +19,25 @@ class SearchViewController: BaseUIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        userRepository.searchUsers(keyword: "abc", limit: 12) { (result) in
-            switch result {
-            case .success(searchResponse):
-//                print(searchResponse?.users)
-                break
-            case .failure( _):
-//                print(error)
-                break
+    }
+
+    @IBAction func searchButtonClicked(_ sender: Any) {
+        let keyword = searchTextField?.text
+        let limit = limitNumberTextField?.text
+        if let keyword = keyword, let limit = limit {
+            if let limit = Int(limit) {
+                userRepository.searchUsers(keyword: keyword, limit: limit) { (result) in
+                    switch result {
+                    case .success(let searchResponse):
+                        let listUserVC = ListUsersViewController()
+                        listUserVC.users = searchResponse?.users
+                        self.navigationController?.pushViewController(listUserVC, animated: true)
+                    case .failure(let error):
+                        self.showErrorAlert(message: error?.errorMessage)
+                    }
+                }
             }
         }
     }
+    
 }
