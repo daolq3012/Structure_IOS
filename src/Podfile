@@ -5,4 +5,5 @@ platform :ios, '9.0'
 target 'Structure_IOS' do
   pod 'Alamofire', '~> 4.5'
   pod 'AlamofireObjectMapper', '~> 4.1.0'
+  pod 'SwiftLint'
 end

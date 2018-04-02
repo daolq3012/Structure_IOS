@@ -21,7 +21,7 @@ class SearchViewController: BaseUIViewController {
         super.viewDidLoad()
         userRepository.searchUsers(keyword: "abc", limit: 12) { (result) in
             switch result {
-            case .success( _):
+            case .success(searchResponse):
 //                print(searchResponse?.users)
                 break
             case .failure( _):
