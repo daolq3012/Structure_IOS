@@ -9,5 +9,5 @@
 import Foundation
 
 class Constants {
-    public static let appName = "WSM"
+    public static let appName = "Structure IOS"
 }
