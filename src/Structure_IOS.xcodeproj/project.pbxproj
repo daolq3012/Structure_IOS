@@ -15,6 +15,8 @@
 		BF3427351F9EF3A20083B79E /* ListUsersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF3427331F9EF3A20083B79E /* ListUsersTableViewCell.xib */; };
 		BF34273A1F9F37C90083B79E /* UIViewControllerExtendsion.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3427391F9F37C90083B79E /* UIViewControllerExtendsion.swift */; };
 		BF34273C1F9F387D0083B79E /* AlertViewControllerExtendsion.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF34273B1F9F387D0083B79E /* AlertViewControllerExtendsion.swift */; };
+		BF48AFB8207B2098002764A1 /* LocalDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF48AFB7207B2098002764A1 /* LocalDatabase.swift */; };
+		BF48AFBC207B20D4002764A1 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF48AFBB207B20D4002764A1 /* CustomView.swift */; };
 		BF6BD7D31F9D9A1B005AE359 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6BD7D21F9D9A1B005AE359 /* UserRepository.swift */; };
 		BF6BD7D51F9DA24E005AE359 /* BaseResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6BD7D41F9DA24E005AE359 /* BaseResult.swift */; };
 		BFACA53F1F9B2499003EB555 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFACA53E1F9B2499003EB555 /* AppDelegate.swift */; };
@@ -45,6 +47,8 @@
 		BF3427331F9EF3A20083B79E /* ListUsersTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListUsersTableViewCell.xib; sourceTree = "<group>"; };
 		BF3427391F9F37C90083B79E /* UIViewControllerExtendsion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtendsion.swift; sourceTree = "<group>"; };
 		BF34273B1F9F387D0083B79E /* AlertViewControllerExtendsion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertViewControllerExtendsion.swift; sourceTree = "<group>"; };
+		BF48AFB7207B2098002764A1 /* LocalDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDatabase.swift; sourceTree = "<group>"; };
+		BF48AFBB207B20D4002764A1 /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		BF6BD7D21F9D9A1B005AE359 /* UserRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		BF6BD7D41F9DA24E005AE359 /* BaseResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseResult.swift; sourceTree = "<group>"; };
 		BFACA53B1F9B2499003EB555 /* Structure_IOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Structure_IOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,6 +90,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		BF48AFB9207B20AD002764A1 /* Widgets */ = {
+			isa = PBXGroup;
+			children = (
+				BF48AFBB207B20D4002764A1 /* CustomView.swift */,
+			);
+			path = Widgets;
+			sourceTree = "<group>";
+		};
 		BFACA5321F9B2499003EB555 = {
 			isa = PBXGroup;
 			children = (
@@ -107,15 +119,15 @@
 		BFACA53D1F9B2499003EB555 /* Structure_IOS */ = {
 			isa = PBXGroup;
 			children = (
-				BFACA54A1F9B2499003EB555 /* Info.plist */,
 				BFF6907C207B04BD005BFE83 /* Application */,
 				BFF6907E207B051A005BFE83 /* Data */,
 				BFF6908B207B0942005BFE83 /* Extensions */,
+				BFACA54A1F9B2499003EB555 /* Info.plist */,
 				BFF69092207B0AEA005BFE83 /* Repositories */,
 				BFF6908D207B0A2A005BFE83 /* Resources */,
 				BFF6908F207B0A68005BFE83 /* Scenes */,
 				BFF69093207B0B22005BFE83 /* Utils */,
-				BFF6908A207B0937005BFE83 /* Widgets */,
+				BF48AFB9207B20AD002764A1 /* Widgets */,
 			);
 			path = Structure_IOS;
 			sourceTree = "<group>";
@@ -158,6 +170,7 @@
 		BFF69081207B054C005BFE83 /* Local */ = {
 			isa = PBXGroup;
 			children = (
+				BF48AFB7207B2098002764A1 /* LocalDatabase.swift */,
 			);
 			path = Local;
 			sourceTree = "<group>";
@@ -223,13 +236,6 @@
 				BFACA55E1F9B3FB9003EB555 /* APIService.swift */,
 			);
 			path = Service;
-			sourceTree = "<group>";
-		};
-		BFF6908A207B0937005BFE83 /* Widgets */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Widgets;
 			sourceTree = "<group>";
 		};
 		BFF6908B207B0942005BFE83 /* Extensions */ = {
@@ -449,6 +455,7 @@
 				BFACA55F1F9B3FB9003EB555 /* APIService.swift in Sources */,
 				BFACA53F1F9B2499003EB555 /* AppDelegate.swift in Sources */,
 				BFACA5691F9BA934003EB555 /* BaseRequest.swift in Sources */,
+				BF48AFB8207B2098002764A1 /* LocalDatabase.swift in Sources */,
 				BF34272E1F9EF1EE0083B79E /* ListUsersViewController.swift in Sources */,
 				BFACA5731F9C7E36003EB555 /* SearchResponse.swift in Sources */,
 				BFACA5711F9C7B5B003EB555 /* ErrorResponse.swift in Sources */,
@@ -456,6 +463,7 @@
 				BFBF4D011F9DD9A400F1E48B /* URLs.swift in Sources */,
 				BF34273A1F9F37C90083B79E /* UIViewControllerExtendsion.swift in Sources */,
 				BF6BD7D51F9DA24E005AE359 /* BaseResult.swift in Sources */,
+				BF48AFBC207B20D4002764A1 /* CustomView.swift in Sources */,
 				BF6BD7D31F9D9A1B005AE359 /* UserRepository.swift in Sources */,
 				BF3427251F9EE3D80083B79E /* BaseUIViewController.swift in Sources */,
 				BFACA56D1F9C7538003EB555 /* CustomRequestAdapter.swift in Sources */,
