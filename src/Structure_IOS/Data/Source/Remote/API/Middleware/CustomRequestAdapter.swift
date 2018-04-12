@@ -9,11 +9,14 @@
 import Foundation
 import Alamofire
 
-class CustomRequestAdapter: RequestAdapter {
+final class CustomRequestAdapter: RequestAdapter {
+    private let userDefault = UserDefaults()
+
     func adapt(_ urlRequest: URLRequest) throws -> URLRequest {
         var urlRequest = urlRequest
-        
-//        urlRequest.setValue(MY_API_KEY, forHTTPHeaderField: "X-AccessToken")
+        if let accessToken = userDefault.string(forKey: Constants.keyAccessToken) {
+            urlRequest.setValue(accessToken, forHTTPHeaderField: "X-AccessToken")
+        }
         urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
         return urlRequest
     }

@@ -73,10 +73,16 @@
                                 <state key="normal" title="Search">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <action selector="searchButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Y4L-8W-lw0"/>
-                                </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LrL-Hi-txo">
+                                <rect key="frame" x="31" y="455" width="313" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="25" id="iu5-kO-Aen"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -84,6 +90,7 @@
                             <constraint firstItem="Jyb-3E-qfH" firstAttribute="height" secondItem="FNf-c4-Gfi" secondAttribute="height" id="Ee6-wV-Zv3"/>
                             <constraint firstItem="XHg-5V-z5Q" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="11" id="GRz-gT-ip2"/>
                             <constraint firstItem="Jyb-3E-qfH" firstAttribute="trailing" secondItem="FNf-c4-Gfi" secondAttribute="trailing" id="JFS-qP-x9W"/>
+                            <constraint firstItem="LrL-Hi-txo" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="15" id="LbM-ye-j9Y"/>
                             <constraint firstItem="Jyb-3E-qfH" firstAttribute="leading" secondItem="FNf-c4-Gfi" secondAttribute="leading" id="PGc-zt-YmU"/>
                             <constraint firstItem="FNf-c4-Gfi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="2" id="Xyy-P2-zck"/>
                             <constraint firstAttribute="trailingMargin" secondItem="XHg-5V-z5Q" secondAttribute="trailing" constant="11" id="bG3-Pc-Npb"/>
@@ -91,6 +98,8 @@
                             <constraint firstItem="XHg-5V-z5Q" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="100" id="frd-tB-nCM"/>
                             <constraint firstItem="eNK-jz-vSZ" firstAttribute="centerX" secondItem="Jyb-3E-qfH" secondAttribute="centerX" id="hNK-5T-byD"/>
                             <constraint firstItem="eNK-jz-vSZ" firstAttribute="top" secondItem="Jyb-3E-qfH" secondAttribute="bottom" constant="45" id="jm4-U3-ROW"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="LrL-Hi-txo" secondAttribute="trailing" constant="15" id="kRi-fZ-9U0"/>
+                            <constraint firstItem="LrL-Hi-txo" firstAttribute="top" secondItem="eNK-jz-vSZ" secondAttribute="bottom" constant="50" id="qba-c3-AMP"/>
                             <constraint firstAttribute="trailing" secondItem="FNf-c4-Gfi" secondAttribute="trailing" constant="2" id="uKg-wQ-ded"/>
                         </constraints>
                     </view>
@@ -98,8 +107,9 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="2j0-4u-Pii"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="errorLabel" destination="LrL-Hi-txo" id="eei-Gc-CCw"/>
                         <outlet property="limitNumberTextField" destination="Jyb-3E-qfH" id="ZlW-Qv-42r"/>
-                        <outlet property="searchButton" destination="eNK-jz-vSZ" id="1mW-lH-QiV"/>
+                        <outlet property="searchButton" destination="eNK-jz-vSZ" id="Wbd-HZ-YVY"/>
                         <outlet property="searchTextField" destination="FNf-c4-Gfi" id="9XA-2z-Wo6"/>
                     </connections>
                 </viewController>

@@ -10,4 +10,6 @@ import Foundation
 
 class Constants {
     public static let appName = "Structure IOS"
+
+    public static let keyAccessToken = "AccessToken"
 }

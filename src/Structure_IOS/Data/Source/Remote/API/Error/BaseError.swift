@@ -9,6 +9,7 @@
 import Foundation
 
 enum BaseError: Error {
+
     case networkError
     case httpError(httpCode: Int)
     case unexpectedError
