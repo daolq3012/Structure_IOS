@@ -15,8 +15,15 @@ protocol UserRepository {
 }
 
 class UserRepositoryImpl: UserRepository {
-    
-    private var api: APIService!
+
+    class var sharedInstance : UserRepository {
+        struct Static {
+            static let instance = UserRepositoryImpl(api: APIService.share)
+        }
+        return Static.instance
+    }
+
+    let api: APIService!
     
     required init(api: APIService) {
         self.api = api

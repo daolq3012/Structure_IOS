@@ -12,7 +12,7 @@ import Alamofire
 
 class SearchRequest: BaseRequest {
     
-    required init(keyword: String, limit: Int) {
+    required init(keyword: String, limit: String) {
         let body: [String: Any]  = [
             "per_page": limit,
             "q": keyword

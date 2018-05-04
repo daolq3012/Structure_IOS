@@ -73,6 +73,9 @@
                                 <state key="normal" title="Search">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="didTapSearchButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pbF-es-3F5"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LrL-Hi-txo">
                                 <rect key="frame" x="31" y="455" width="313" height="25"/>
@@ -107,9 +110,7 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="2j0-4u-Pii"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="errorLabel" destination="LrL-Hi-txo" id="eei-Gc-CCw"/>
                         <outlet property="limitNumberTextField" destination="Jyb-3E-qfH" id="ZlW-Qv-42r"/>
-                        <outlet property="searchButton" destination="eNK-jz-vSZ" id="Wbd-HZ-YVY"/>
                         <outlet property="searchTextField" destination="FNf-c4-Gfi" id="9XA-2z-Wo6"/>
                     </connections>
                 </viewController>
