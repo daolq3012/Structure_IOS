@@ -8,61 +8,51 @@
 
 import UIKit
 import RxSwift
-import RxCocoa
 
 class ListUsersViewController: BaseUIViewController {
     private let disposeBag = DisposeBag()
-    var viewModel: ListUserViewModel!
 
     @IBOutlet weak var tableView: UITableView!
 
     var users: [User]?
-
-    static func createWith(viewModel: ListUserViewModel) -> ListUsersViewController {
-        let viewController = ListUsersViewController()
-        viewController.viewModel = viewModel
-        return viewController
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Search Result"
 
         configureTableView()
-        bindViewModel()
     }
 
     private func configureTableView() {
         tableView.register(UINib(nibName: ListUsersTableViewCell.reuseID, bundle: nil),
                             forCellReuseIdentifier: ListUsersTableViewCell.reuseID)
         tableView.estimatedRowHeight = 64
+        tableView.delegate = self
+        tableView.dataSource = self
+    }
+}
+
+extension ListUsersViewController: UITableViewDelegate, UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ListUsersTableViewCell")
+        if let cell = cell as? ListUsersTableViewCell {
+            cell.updateCell(user: users?[indexPath.row])
+            return cell
+        }
+        return UITableViewCell()
     }
 
-    private func bindViewModel() {
-        assert(viewModel != nil)
-        let input = ListUserViewModel.Input(selection: tableView.rx.itemSelected.asDriver())
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let size = users?.count {
+            return size
+        }
+        return 0
+    }
 
-        let output = viewModel.transform(input: input)
-        // MARK: Single Cell
-//        output.users.drive(tableView.rx.items(cellIdentifier: ListUsersTableViewCell.reuseID,
-//                                              cellType: ListUsersTableViewCell.self)) { (_, viewModel, cell) in
-//            cell.bind(viewModel: viewModel)
-//        }.disposed(by: disposeBag)
-
-        // MARK: Multiple Cell
-        output.users.asObservable().bind(to: tableView.rx.items) { (tableView, row, element) in
-            let indexPath = IndexPath(row: row, section: 0)
-            var cell: UITableViewCell!
-            if indexPath.row == 1 {
-                cell = tableView.dequeueReusableCell(withIdentifier: ListUsersTableViewCell.reuseID, for: indexPath)
-                (cell as! ListUsersTableViewCell).bind(viewModel: element)
-            } else {
-                cell = tableView.dequeueReusableCell(withIdentifier: ListUsersTableViewCell.reuseID, for: indexPath)
-                (cell as! ListUsersTableViewCell).bind(viewModel: element)
-            }
-            return cell
-        }.disposed(by: disposeBag)
-
-        output.selectedCell.drive().disposed(by: disposeBag)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let user = users?[indexPath.row] {
+            print(user)
+        }
     }
 }

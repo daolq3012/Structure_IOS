@@ -13,10 +13,6 @@ class ListUsersTableViewCell: UITableViewCell {
 
     @IBOutlet weak var userNameLabel: UILabel!
 
-    func bind(viewModel: UserItemViewModel) {
-        self.userNameLabel.text = viewModel.login
-    }
-
     func updateCell(user: User?) {
         userNameLabel.text = user?.login
     }

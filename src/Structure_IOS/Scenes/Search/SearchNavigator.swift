@@ -10,19 +10,14 @@ import Foundation
 import UIKit
 
 protocol SearchNavigator {
-
     func toListUser(users: [User])
 }
 
-final class DefaultSearchNavigator: SearchNavigator {
-    private let navigationController: UINavigationController?
-
-    init(navigationController: UINavigationController?) {
-        self.navigationController = navigationController
-    }
+final class DefaultSearchNavigator: BaseNavigator,SearchNavigator {
 
     func toListUser(users: [User]) {
-        let listUserViewController = ListUsersViewController.createWith(viewModel: ListUserViewModel(users: users))
+        let listUserViewController = ListUsersViewController()
+        listUserViewController.users = users
         navigationController?.pushViewController(listUserViewController, animated: false)
     }
 }
