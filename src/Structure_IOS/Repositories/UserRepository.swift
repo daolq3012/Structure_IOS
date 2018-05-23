@@ -8,30 +8,24 @@
 
 import Foundation
 import ObjectMapper
+import RxSwift
 
 protocol UserRepository {
-    func searchUsers(keyword: String, limit: Int, completion: @escaping (BaseResult<SearchResponse>) -> Void)
+    func searchUsers(input: SearchRequest) -> Observable<[User]>
 }
 
 class UserRepositoryImpl: UserRepository {
     
-    private var api: APIService?
+    private var api: APIService!
     
     required init(api: APIService) {
         self.api = api
     }
-    
-    func searchUsers(keyword: String, limit: Int, completion: @escaping (BaseResult<SearchResponse>) -> Void) {
-        let input = SearchRequest(keyword: keyword, limit: limit)
-        
-        api?.request(input: input) { (object: SearchResponse?, error) in
-            if let object = object {
-                completion(.success(object))
-            } else if let error = error {
-                completion(.failure(error: error))
-            } else {
-                completion(.failure(error: nil))
-            }
-        }
+
+    func searchUsers(input: SearchRequest) -> Observable<[User]> {
+        return api.request(input: input)
+            .map({ (response: SearchResponse) -> [User] in
+            return response.users
+        })
     }
 }

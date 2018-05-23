@@ -3,7 +3,10 @@ use_frameworks!
 platform :ios, '9.0'
 
 target 'Structure_IOS' do
-  pod 'Alamofire', '~> 4.5'
-  pod 'AlamofireObjectMapper', '~> 4.1.0'
+  pod 'Alamofire', '~> 4.7.1'
+  pod 'AlamofireObjectMapper', '~> 5.0.0'
   pod 'SwiftLint'
+   pod 'RxSwift', '~> 4.1.2'
+  pod 'RxCocoa', '~> 4.1.2'
+  pod 'SVProgressHUD', '~> 2.2.5'
 end
