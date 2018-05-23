@@ -27,11 +27,24 @@ Source Code:
 
 **Branch:** [mvvm-architecture](https://github.com/daolq3012/Structure_IOS/tree/mvvm_architect)
 
+## MVP
+Diagram:
+
+![alt text](https://informatechcr.files.wordpress.com/2013/03/mvp-diagram.png?w=660)
+
+- Using Reactive: [RxSwift](https://github.com/ReactiveX/RxSwift)
+- Using [Alamofire](https://github.com/Alamofire/Alamofire) to interact with server
+- Using [ObjectMapper](https://github.com/Hearst-DD/ObjectMapper) to mapping data response
+
+Source Code:
+
+**Branch:** [mvp-architecture](https://github.com/daolq3012/Structure_IOS/tree/mvp_architect)
+
 ## ☑ TODO
 
 - [X] Add MVC Examples
 - [X] Add MVVM Examples
-- [ ] Add MVP Examples
+- [X] Add MVP Examples
 - [ ] Update documentation for each
 - [ ] Add Unittest for MVVM
 
