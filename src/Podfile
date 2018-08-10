@@ -2,6 +2,9 @@
 use_frameworks!
 platform :ios, '9.0'
 
+# ignore all warnings from all pods
+inhibit_all_warnings!
+
 target 'Structure_IOS' do
   pod 'Alamofire', '~> 4.7.1'
   pod 'AlamofireObjectMapper', '~> 5.0.0'

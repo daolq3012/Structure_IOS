@@ -8,12 +8,12 @@
 
 import Foundation
 
-protocol SearchView {
+protocol SearchView: class {
     func onSearchError(error: BaseError)
 
     func onSearchSuccess(users: [User])
 }
 
-protocol SearchPresenter {
+protocol SearchPresenter: class {
     func search(keyword: String, limit: String)
 }

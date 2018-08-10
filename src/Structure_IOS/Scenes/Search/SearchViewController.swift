@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import SVProgressHUD
 
-class SearchViewController: BaseUIViewController, SearchView, AlertViewController {
+class SearchViewController: BaseUIViewController, AlertViewController {
     private let disposeBag = DisposeBag()
 
     @IBOutlet weak var searchTextField: UITextField!
@@ -35,12 +35,15 @@ class SearchViewController: BaseUIViewController, SearchView, AlertViewControlle
         SVProgressHUD.show()
         presenter?.search(keyword: keyword, limit: limit)
     }
+}
 
+extension SearchViewController: SearchView {
+    
     func onSearchSuccess(users: [User]) {
         SVProgressHUD.dismiss()
         navigator?.toListUser(users: users)
     }
-
+    
     func onSearchError(error: BaseError) {
         SVProgressHUD.dismiss()
         showErrorAlert(message: error.errorMessage)

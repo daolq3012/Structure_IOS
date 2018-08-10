@@ -11,8 +11,8 @@ import RxSwift
 
 class SearchPresenterImpl: SearchPresenter {
 
-    private let view: SearchView
-    private let userRepository: UserRepository;
+    private weak var view: SearchView!
+    private let userRepository: UserRepository
 
     private let disposeBag = DisposeBag()
 

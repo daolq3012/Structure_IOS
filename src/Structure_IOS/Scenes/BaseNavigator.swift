@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class BaseNavigator {
-    let navigationController: UINavigationController?
+    weak var navigationController: UINavigationController?
 
     required init(navigationController: UINavigationController?) {
         self.navigationController = navigationController
