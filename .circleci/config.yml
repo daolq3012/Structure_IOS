@@ -1,0 +1,87 @@
+version: 2
+
+defaults: &defaults
+  macos:
+    xcode: "10.2.0"
+  working_directory: /Users/distiller/project
+  environment:
+    FL_OUTPUT_DIR: /Users/distiller/project/output
+    GYM_OUTPUT_NAME: app
+  # For fix ruby error
+  shell: /bin/bash --login -eo pipefail
+
+jobs:
+  build:
+    <<: *defaults
+    steps:
+      - checkout
+
+      - run:
+          name: Set Ruby Version
+          command:  echo "ruby-2.4" > .ruby-version
+
+      - restore_cache:
+          keys:
+          - v1-gems-{{ checksum "Gemfile.lock" }}
+          - v1-gems-
+      - run:
+          name: Install RubyGems
+          command: bundle install --path vendor/bundle
+      - save_cache:
+          key: v1-gems-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+
+      # - run:
+      #     name: Install SwiftLint
+      #     command: brew install swiftlint
+
+      # - run:
+      #     name: Decrypt resource
+      #     command: openssl aes-256-cbc -k $DECRYPT_KEY -d -in JobChat/Resources/Staging/encrypted_GoogleService-Info.plist -out JobChat/Resources/Staging/GoogleService-Info.plist
+
+      # - run:
+      #     name: Run unit test
+      #     command: bundle exec fastlane test
+      - run:
+          name: Run Danger
+          command: bundle exec danger
+
+      - store_artifacts:
+          path: /Users/distiller/project/output
+          destination: output
+      - store_test_results:
+          path: /Users/distiller/project/output/scan
+
+      - persist_to_workspace:
+          root: /Users/distiller/project
+          paths:
+            - .
+
+  deploy:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: /Users/distiller/project
+      # - run:
+      #     command: base64 -D -o certificates/Certificates.p12 <<< $Certificates
+      # - run:
+      #     command: base64 -D -o certificates/JobChatStgAdHocProvision.mobileprovision <<< $profile
+      - run:  
+          name: Build ipa & upload
+          command: bundle exec fastlane beta
+      - store_artifacts:
+          path: /Users/distiller/project/output
+          destination: output
+
+workflows:
+  version: 2
+  build_and_deploy:
+    jobs:
+      - build:
+          filters:
+            tags:
+              only: /^v.*/
+      - deploy:
+          requires:
+            - build

@@ -1,0 +1,67 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:ios)
+
+SCHEME_NAME = 'Staging'
+
+TEAM_ID = 'PF7X72W59F'
+BUNDLE_ID = 'com.ccc.jobchat.stg'
+PROVISIONING_PROFILE_NAME = 'JobChatStgAdHocProvision'
+
+
+platform :ios do
+  before_all do
+    setup_circle_ci
+  end
+
+  desc "Upload to Fabric"
+  lane :beta do
+    setup_provisioning_profiles
+
+    build_app(
+      scheme: SCHEME_NAME,
+      export_method: 'development',
+      export_options: {
+        provisioningProfiles: {
+          BUNDLE_ID => PROVISIONING_PROFILE_NAME
+        }
+      },
+      xcargs: "DEVELOPMENT_TEAM='#{TEAM_ID}' PROVISIONING_PROFILE_SPECIFIER='#{PROVISIONING_PROFILE_NAME}'"
+    )
+
+    crashlytics(
+      api_token: ENV['CRASHLYTICS_API_KEY'],
+      build_secret: ENV['CRASHLYTICS_SECRET'],
+      groups: "QA3C",
+      notes: "Automatic iOS Build"
+    )
+  end
+
+  private_lane :setup_provisioning_profiles do |options|
+    next unless Helper.ci?
+
+    import_certificate(
+      keychain_name: 'fastlane_tmp_keychain',
+      certificate_path: 'certificates/Certificates.p12',
+      certificate_password: ENV['IOS_CERTIFICATES_KEY_PASSWORD'],
+      keychain_password: ENV['MATCH_KEYCHAIN_PASSWORD'])
+
+    Dir.glob('../certificates/*.mobileprovision').each {|filename|
+      puts filename
+      FastlaneCore::ProvisioningProfile.install(filename)
+    }
+  end
+end

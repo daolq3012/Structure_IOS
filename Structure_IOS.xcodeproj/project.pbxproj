@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		95EBCB25DD5E94C08069B703 /* Pods_Structure_IOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12350BBD90D5323169389B9C /* Pods_Structure_IOS.framework */; };
+		BF4EB10B23443AE20056BC95 /* Dangerfile in Resources */ = {isa = PBXBuildFile; fileRef = BF4EB10A23443AE20056BC95 /* Dangerfile */; };
+		BF4EB10E23443AFC0056BC95 /* fastlane in Resources */ = {isa = PBXBuildFile; fileRef = BF4EB10C23443AFC0056BC95 /* fastlane */; };
+		BF4EB10F23443AFC0056BC95 /* Gemfile in Resources */ = {isa = PBXBuildFile; fileRef = BF4EB10D23443AFC0056BC95 /* Gemfile */; };
+		BF4EB11123443B1B0056BC95 /* certificates in Resources */ = {isa = PBXBuildFile; fileRef = BF4EB11023443B1B0056BC95 /* certificates */; };
 		BFACA53F1F9B2499003EB555 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFACA53E1F9B2499003EB555 /* AppDelegate.swift */; };
 		BFACA5411F9B2499003EB555 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFACA5401F9B2499003EB555 /* ViewController.swift */; };
 		BFACA5441F9B2499003EB555 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFACA5421F9B2499003EB555 /* Main.storyboard */; };
@@ -19,6 +23,10 @@
 		12350BBD90D5323169389B9C /* Pods_Structure_IOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Structure_IOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2699674AA73EF5A16274B415 /* Pods-Structure_IOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Structure_IOS.release.xcconfig"; path = "Target Support Files/Pods-Structure_IOS/Pods-Structure_IOS.release.xcconfig"; sourceTree = "<group>"; };
 		ACEB269FB87DA33989737CD6 /* Pods-Structure_IOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Structure_IOS.debug.xcconfig"; path = "Target Support Files/Pods-Structure_IOS/Pods-Structure_IOS.debug.xcconfig"; sourceTree = "<group>"; };
+		BF4EB10A23443AE20056BC95 /* Dangerfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Dangerfile; sourceTree = SOURCE_ROOT; };
+		BF4EB10C23443AFC0056BC95 /* fastlane */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fastlane; sourceTree = SOURCE_ROOT; };
+		BF4EB10D23443AFC0056BC95 /* Gemfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Gemfile; sourceTree = SOURCE_ROOT; };
+		BF4EB11023443B1B0056BC95 /* certificates */ = {isa = PBXFileReference; lastKnownFileType = folder; path = certificates; sourceTree = SOURCE_ROOT; };
 		BFACA53B1F9B2499003EB555 /* Structure_IOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Structure_IOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFACA53E1F9B2499003EB555 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BFACA5401F9B2499003EB555 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -46,7 +54,6 @@
 				ACEB269FB87DA33989737CD6 /* Pods-Structure_IOS.debug.xcconfig */,
 				2699674AA73EF5A16274B415 /* Pods-Structure_IOS.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -58,9 +65,21 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		BF4EB10923443AD30056BC95 /* CI */ = {
+			isa = PBXGroup;
+			children = (
+				BF4EB11023443B1B0056BC95 /* certificates */,
+				BF4EB10C23443AFC0056BC95 /* fastlane */,
+				BF4EB10D23443AFC0056BC95 /* Gemfile */,
+				BF4EB10A23443AE20056BC95 /* Dangerfile */,
+			);
+			path = CI;
+			sourceTree = "<group>";
+		};
 		BFACA5321F9B2499003EB555 = {
 			isa = PBXGroup;
 			children = (
+				BF4EB10923443AD30056BC95 /* CI */,
 				BFACA53D1F9B2499003EB555 /* Structure_IOS */,
 				BFACA53C1F9B2499003EB555 /* Products */,
 				2703D795CE736C68E8BCC318 /* Pods */,
@@ -151,9 +170,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF4EB11123443B1B0056BC95 /* certificates in Resources */,
+				BF4EB10F23443AFC0056BC95 /* Gemfile in Resources */,
 				BFACA5491F9B2499003EB555 /* LaunchScreen.storyboard in Resources */,
 				BFACA5461F9B2499003EB555 /* Assets.xcassets in Resources */,
 				BFACA5441F9B2499003EB555 /* Main.storyboard in Resources */,
+				BF4EB10B23443AE20056BC95 /* Dangerfile in Resources */,
+				BF4EB10E23443AFC0056BC95 /* fastlane in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
